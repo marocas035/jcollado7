@@ -28,6 +28,7 @@ class VA(Agent):
                 """Asks browser for active coils and locations"""
                 #  Builds msg to br
                 va_request_type = "coils"
+                va_msg_br_body = pd.DataFrame()
                 va_msg_br_body = asf.req_active_users_loc_times(va_data_df, seq_va, list_coils, va_request_type)
                 va_msg_br_body_json = va_msg_br_body.to_json() #returns a json with request info to browser
                 va_msg_br = asf.msg_to_br(va_msg_br_body_json, my_dir)
